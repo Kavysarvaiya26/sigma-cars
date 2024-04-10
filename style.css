@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.vote-btn {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.vote-btn:hover {
+    transform: scale(1.05);
+}
+
+.vote-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.result {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.result p {
+    margin: 10px 0;
+}
+
+.vote-btn.car1 {
+    background-color: #ff6347;
+    /* Tomato */
+    color: #fff;
+}
+
+.vote-btn.car2 {
+    background-color: #4682b4;
+    /* Steel Blue */
+    color: #fff;
+}
+
+.vote-btn.car3 {
+    background-color: #ffa500;
+    /* Orange */
+    color: #fff;
+}
+
+.container:before,
+.container:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .vote-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Additional CSS */
+.container {
+    box-sizing: border-box;
+    border: 2px solid #333;
+}
+
+.vote-btn {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.vote-btn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.result {
+    border-top: 2px solid #333;
+    padding-top: 20px;
+}

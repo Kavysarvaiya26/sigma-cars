@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover-Follow Button</title>
+<style>
+  .hover-follow-button {
+    position: absolute;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #4CAF50, #2E8B57);
+    border: 2px solid #2E8B57;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.5s, color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite alternate;
+  }
+  
+  .hover-follow-button:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    background: linear-gradient(45deg, #4CAF50, #2E8B57);
+  }
+
+  .hover-follow-button span {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="hover-follow-button"><span>Hover Over Me</span></button>
+
+<script>
+  const button = document.querySelector('.hover-follow-button');
+
+  button.addEventListener('mousemove', (e) => {
+    const x = e.clientX - button.offsetWidth / 2;
+    const y = e.clientY - button.offsetHeight / 2;
+
+    button.style.left = `${x}px`;
+    button.style.top = `${y}px`;
+
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scrolling */
+            display: flex;
+            position: relative;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Ensure the video is behind other content */
+        }
+
+        #video {
+            opacity: .4;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #content {
+
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent background to make text readable */
+            z-index: -2;
+            /* Ensure content is above the video */
+        }
+
+        p {
+            font-weight: bolder;
+        }
+
+        #image-container {
+            z-index: -2;
+            flex: 1;
+            position: relative;
+        }
+
+        #image {
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .button {
+            border: 4px solid rgb(7, 7, 141);
+            background-color: blue;
+            color: white;
+            position: relative;
+            top: 650px;
+            right: 20px;
+            height: 30px;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop muted>
+            <source src="buggati.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="image-container">
+        <img id="image" src="buggti/buggati collage.jpg" alt="Your Image">
+    </div>
+    <div id="content">
+        <h1>kavy's favourite  Koenigsegg Jesko </h1>
+        <p>Overviewb <br>
+        Manufacturer<br>
+        Koenigsegg Jesko <br>
+        Production<br>
+        2010–2018<br>
+        Assembly<br>
+        Ängelholm, Sweden<br>
+        Designer<br>
+        Christian von Koenigsegg<br>
+        Body and chassis<br>
+        Class<br>
+        Sports car (S)<br><br>
+        Body style<br>
+        2-door targa top<br>
+        Layout<br>
+        Rear mid-engine, rear-wheel-drive<br>
+        Doors<br>
+        Dihedral Synchro-Helix<br>
+        Powertrain<br>
+        Engine<br>
+        5.0 L (305 cu in; 5,000 cc) Koenigsegg twin-turbocharged V8<br>
+        Power output<br>
+        Standard: 706 kW (960 PS; 947 hp)<br>
+        Agera R: 706 kW (960 PS; 947 hp) on 93 Octane or 838 kW (1,139 PS; 1,124 hp) on E85<br>
+        Agera S: 758 kW (1,031 PS; 1,016 hp)<br>
+        Agera RS: 865 kW (1,176 PS; 1,160 hp) or 1,000 kW (1,360 PS; 1,341 hp) 1MW option<br>
+        One:1 / Agera Final: 1,000 kW 1,360PS;1,341hp</p>
+    </div>
+    <a href="challenger.html">
+        <button class="button">move to next car</button>
+    </a>
+</body>
+
+</html>

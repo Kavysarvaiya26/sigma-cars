@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scrolling */
+            display: flex;
+            position: relative;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Ensure the video is behind other content */
+        }
+
+        #video {
+            opacity: .4;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #content {
+
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent background to make text readable */
+            z-index: -2;
+            /* Ensure content is above the video */
+        }
+
+        p {
+            font-weight: bolder;
+        }
+
+        #image-container {
+            z-index: -2;
+            flex: 1;
+            position: relative;
+        }
+
+        #image {
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .button {
+            border: 4px solid rgb(7, 7, 141);
+            background-color: blue;
+            color: white;
+            position: relative;
+            top: 650px;
+            right: 20px;
+            height: 30px;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop muted>
+            <source src="buggati.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="image-container">
+        <img id="image" src="image and videos/buggati collage.jpg" alt="Your Image">
+    </div>
+    <div id="content">
+        <h1>tirth's favourite buggati chiron</h1>
+        <p> Overview <br>
+            Manufacturer
+            Bugatti Automobiles S.A.S.<br>
+            Production <br>
+            2016–October 2023 (500 units)[1][2] <br>
+            Assembly <br>
+            France: Molsheim (Bugatti Molsheim Plant) <br>
+            Designer <br>
+            Achim Anscheidt (Head of Design)[3] <br>
+            Frank Heyl<br>
+            Etienne Salome<br>
+            Body and chassis<br>
+            Class<br>
+            Sports car (S)<br>
+            Body style<br>
+            2-door coupé<br>
+            Layout<br>
+            Mid-engine, all-wheel-drive<br>
+            Related<br>
+            Bugatti Divo<br>
+            Bugatti Centodieci<br>
+            Bugatti Bolide<br>
+            Bugatti Mistral<br>
+            Engine<br>
+            8.0 L (488 cu in) quad-turbocharged WR16 <br>
+            Power output<br>
+            1,103 kW (1,479 hp; 1,500 PS) (Chiron, Chiron Sport, Chiron Pur Sport, Chiron Noire)
+            1,177 kW (1,578 hp; 1,600 PS) (Chiron Super Sport 300+, Chiron Super Sport)<br>
+            Transmission<br>
+            7-speed dual-clutch automatic[4]</p>
+    </div>
+    <a href="jesco.html">
+        <button class="button">move to next car</button>
+    </a>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Voting</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .vote-btn {
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            transition: transform 0.2s ease;
+        }
+
+        .vote-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .vote-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .result p {
+            margin: 10px 0;
+        }
+
+        .vote-btn.car1 {
+            background-color: #ff6347;
+            /* Tomato */
+            color: #fff;
+        }
+
+        .vote-btn.car2 {
+            background-color: #4682b4;
+            /* Steel Blue */
+            color: #fff;
+        }
+
+        .vote-btn.car3 {
+            background-color: #ffa500;
+            /* Orange */
+            color: #fff;
+        }
+
+        .container:before,
+        .container:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .vote-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Additional CSS */
+        .container {
+            box-sizing: border-box;
+            border: 2px solid #333;
+        }
+
+        .vote-btn {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .vote-btn:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result {
+            border-top: 2px solid #333;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Vote for Your Favorite Car</h1>
+        <button class="vote-btn" id="car1">Car A</button>
+        <button class="vote-btn" id="car2">Car B</button>
+        <button class="vote-btn" id="car3">Car C</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Retrieve votes from localStorage or initialize to zero
+        let votes = JSON.parse(localStorage.getItem('votes')) || {
+            car1: 0,
+            car2: 0,
+            car3: 0
+        };
+
+        // Function to update the vote count for a car
+        function vote(car) {
+            // Check if the user has already voted for any car
+            if (localStorage.getItem('voted')) {
+                alert('You have already voted!');
+                return;
+            }
+
+            // Increment the vote count for the selected car
+            votes[car]++;
+
+            // Update the display of vote counts
+            updateResults();
+
+            // Set a flag indicating that the user has voted
+            localStorage.setItem('voted', true);
+
+            // Store the updated votes in localStorage
+            localStorage.setItem('votes', JSON.stringify(votes));
+
+            // Disable all vote buttons
+            disableButtons();
+        }
+
+        // Function to update the display of vote counts
+        function updateResults() {
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+      <p>Car A: ${votes.car1} votes</p>
+      <p>Car B: ${votes.car2} votes</p>
+      <p>Car C: ${votes.car3} votes</p>
+    `;
+        }
+
+        // Function to disable all vote buttons
+        function disableButtons() {
+            const buttons = document.querySelectorAll('.vote-btn');
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+        }
+
+        // Add event listeners to each vote button
+        document.getElementById('car1').addEventListener('click', () => vote('car1'));
+        document.getElementById('car2').addEventListener('click', () => vote('car2'));
+        document.getElementById('car3').addEventListener('click', () => vote('car3'));
+
+        // Initial update of results
+        updateResults();
+    </script>
+
+</body>
+
+</html>
